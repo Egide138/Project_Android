@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name1">iteration1</string>
+    <string name="logText">Man</string>
+    <string name="logoText1">grove</string>
+    <string name="ButtonText">Get Started</string>
+    <string name="onboardImage">Welcome to the app</string>
+    <string name="solution">Connect to the nearest harvest</string>
+    <string name="solution2">store owner</string>
+    <string name="button2">Back</string>
+    <string name="button3">Register</string>
+    <string name="app_name">Mangrove</string>
+    <string name="Email">Email:</string>
+    <string name="Password">Password:</string>
+    <string name="keep">Keep me logged in</string>
+    <string name="Forgot">Forgot password</string>
+    <string name="login">Login</string>
+    <string name="enteremail">"Enter Email"</string>
+    <string name="enterpass">"Enter password"</string>
+    <string name="loginbutton">"Login"</string>
+    <string name="register">Register now </string>
+    <string name="name">"Name"</string>
+    <string name="phone_no">"Phone number"</string>
+    <string name="location">"Location"</string>
+    <string name="crops">"Types of crops"</string>
+    <string name="confpassw">"Confirm password"</string>
+</resources>
