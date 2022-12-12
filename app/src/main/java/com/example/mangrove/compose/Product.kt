@@ -41,7 +41,7 @@ fun ProductScreen() {
         topBar = {
             TopAppBar(
                 title = {
-                    Text("Add your product")
+                    Text("Add your product", color = Color.White)
                 },
                 navigationIcon = {
                     IconButton(onClick = {}) {
@@ -56,7 +56,8 @@ fun ProductScreen() {
                         Icon(Icons.Filled.Settings, null)
                     }
                 },
-                backgroundColor = MaterialTheme.colors.secondaryVariant)  },
+                backgroundColor = MaterialTheme.colors.onPrimary)
+                 },
 
         floatingActionButton = {
             FloatingActionButton(
@@ -70,7 +71,7 @@ fun ProductScreen() {
         },
         content = {
             if (showDialog){
-                addBookDialog(context, dismissDialog = {showDialog = false}, {viewModel.add(it)})
+                addProductDialog(context, dismissDialog = {showDialog = false}, {viewModel.add(it)})
             }
             LazyColumn(
                 contentPadding = PaddingValues(
@@ -79,8 +80,8 @@ fun ProductScreen() {
                 )
             )
             {
-                items(viewModel.productList, key={product -> product.id}) { book ->
-                    ProductItem(item = book, context, {viewModel.delete(it)})
+                items(viewModel.productList, key={product -> product.id}) { product1 ->
+                    ProductItem(item = product1, context, {viewModel.delete(it)})
                 }
             }
         }
@@ -88,8 +89,14 @@ fun ProductScreen() {
 }
 
 @Composable
-fun addBookDialog(context: Context, dismissDialog:() -> Unit, addProduct: (product) -> Unit){
-    var TaskTextField by remember {
+fun addProductDialog(context: Context, dismissDialog:() -> Unit, addProduct: (product) -> Unit){
+    var ProductTextField by remember {
+        mutableStateOf("")
+    }
+    var KgTextField by remember {
+        mutableStateOf("")
+    }
+    var NumberOfSacks by remember {
         mutableStateOf("")
     }
 
@@ -98,14 +105,18 @@ fun addBookDialog(context: Context, dismissDialog:() -> Unit, addProduct: (produ
         title={ Text(text = stringResource(id = R.string.addproduct), style = MaterialTheme.typography.h6) },
         text = {
             Column(modifier = Modifier.padding(top=20.dp)) {
-                TextField(label = { Text(text= "ProductName") }, value = TaskTextField, onValueChange = {TaskTextField=it})
+                TextField(label = { Text(text= "ProductName") }, value = ProductTextField, onValueChange = {ProductTextField=it})
+                Spacer(modifier = Modifier.height(10.dp))
+                TextField(label = { Text(text= "Kilograms per Sack") }, value = KgTextField, onValueChange = {KgTextField=it})
+                Spacer(modifier = Modifier.height(10.dp))
+                TextField(label = { Text(text= "Number Of Sack") }, value = NumberOfSacks, onValueChange = {NumberOfSacks=it})
             }
         },
         confirmButton = {
             Button(onClick = {
-                if(TaskTextField.isNotEmpty()) {
+                if(ProductTextField.isNotEmpty() && KgTextField.isNotEmpty()) {
                     val newID = UUID.randomUUID().toString();
-                    addProduct(product(newID, TaskTextField))
+                    addProduct(product(newID, ProductTextField,KgTextField,NumberOfSacks))
                     Toast.makeText(
                         context,
                         context.resources.getString(R.string.addedproduct),
@@ -188,7 +199,9 @@ fun ProductItem(item: product, context: Context, deleteProduct: (product) -> Uni
             Column(modifier = Modifier
                 .padding(top = 10.dp, bottom = 10.dp)
                 .padding(start = 10.dp)) {
-                Text(text = item.prod, style = MaterialTheme.typography.h6)
+                Text(text = item.prod, style = MaterialTheme.typography.h6, color = Color.Black)
+                Text(text = item.kgPerSack+" "+"Kg", style = MaterialTheme.typography.h6, color = Color.Black)
+                Text(text = item.sacks+" "+"Bags", style = MaterialTheme.typography.h6, color = Color.Black)
                 //Spacer(modifier = Modifier.width(150.dp))
             }
             //Spacer(modifier = Modifier.width(10.dp))

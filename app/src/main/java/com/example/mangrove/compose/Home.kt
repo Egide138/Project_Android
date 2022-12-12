@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.sp
 import com.example.mangrove.R
 
 @Composable
-fun HomeScreen()
+fun HomeScreen(ClickLogin:()->Unit,ClickRegister:()->Unit)
 {
     Column(
 
@@ -57,9 +57,9 @@ fun HomeScreen()
         }
         Spacer(modifier = Modifier.height(5.dp))
           Row(modifier = Modifier.align(Alignment.CenterHorizontally)) {
-              SignUp()
+              SignUp(ClickRegister)
               Spacer(modifier = Modifier.weight(1f,true))
-              SignIn()
+              SignIn(ClickLogin)
           }
         Spacer(modifier = Modifier.height(15.dp))
         Mycard1()
@@ -133,9 +133,9 @@ fun SimpleFilledTextFieldSample() {
     )
 }
 @Composable
-fun SignUp(){
+fun SignUp(Clicked1:()->Unit){
     Button(
-        onClick = {},
+        onClick = Clicked1,
         colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.secondaryVariant),
         modifier = Modifier
             .size(height = 45.dp, width = 120.dp)
@@ -151,8 +151,8 @@ fun SignUp(){
     }
 }
 @Composable
-fun SignIn(){
-    Button(onClick = {},
+fun SignIn(Clicked:()->Unit){
+    Button(onClick = Clicked,
         colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.secondaryVariant),
         modifier = Modifier
             .size(height = 45.dp, width = 120.dp)

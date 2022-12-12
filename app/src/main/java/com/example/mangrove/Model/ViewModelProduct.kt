@@ -6,10 +6,10 @@ import androidx.lifecycle.ViewModel
 class ViewModelProduct: ViewModel() {
     var productList = mutableStateListOf<product>()
 
-    fun add(newTask: product){
-        productList.add(newTask)
+    fun add(newProduct: product){
+        productList.add(newProduct)
     }
-    fun delete(newTask: product){
-        productList.remove(newTask)
+    fun delete(newProduct: product){
+        productList.remove(newProduct)
     }
 }

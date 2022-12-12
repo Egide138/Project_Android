@@ -31,8 +31,24 @@
     <string name="yes">YES</string>
     <string name="delete">PRODUCT ADDED</string>
     <string name="no">NO</string>
+    <string name="name">You should ADD </string>
+    <string name="Email">Email</string>
     <string name="readmsg">You should ADD </string>
-
-
+    <string name="Password">Password</string>
+    <string name="enteremail">Enter your Email</string>
+    <string name="enterpass">Enter your password </string>
+    <string name="loginbutton">Login </string>
+    <string name="registerbutton">Register</string>
+    <string name="enterlocation">Enter your Location</string>
+    <string name="enterConfpass">Enter your Confirm password </string>
+    <string name="entername">Enter your Name </string>
+    <string name="enterphone">Enter your Phone Number </string>
+    <string name="entercrop">Enter your Crop </string>
+    <string name="confpassword">Confirm Password </string>
+    <string name="crop">Type of Crop </string>
+    <string name="location">Locatiion </string>
+    <string name="phone">Phone </string>
+    <string name="username">Name </string>
+<!--    <string name="phoneName">Location</string>-->
 
 </resources>

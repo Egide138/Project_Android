@@ -54,7 +54,23 @@ fun BottomNavigationBar(navController: NavController)
 fun NavigationOnDifferentPages(navController: NavHostController) {
     NavHost(navController, startDestination = NavigationItem.Home.route) {
         composable(NavigationItem.Home.route) {
-            HomeScreen()
+            var Loginvariable by remember{ mutableStateOf(true) }
+            var registervariable by remember{ mutableStateOf(true) }
+
+            if(Loginvariable && registervariable)
+            {
+                HomeScreen({ Loginvariable=false},{registervariable=false})
+
+            }
+            else if(Loginvariable==false)
+            {
+                LoginProject()
+            }
+            else if(registervariable==false)
+            {
+                RegisterProject()
+            }
+
         }
         composable(NavigationItem.Search.route) {
             SearchScreen()
@@ -74,7 +90,5 @@ fun NavigationOnDifferentPages(navController: NavHostController) {
                 }
 
             }
-
-
     }
 }
